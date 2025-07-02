@@ -1,8 +1,17 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: User
 metadata:
-  name: ${{ values.name | dump }}
+  name: guest
 spec:
-  type: service
-  owner: user:guest
-  lifecycle: experimental
+  memberOf: [guests]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-group
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: guests
+spec:
+  type: team
+  children: []
